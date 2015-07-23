@@ -1,0 +1,11 @@
+{
+  "name": "TheSideScroller",
+  "version": "1.0.0",
+  "homepage": "https://github.com/PavelDobranov/TA-Teamwork-JS-UI-And-DOM",
+  "authors": [
+    "Team Rusty Nail"
+  ],
+  "description": "Quintus Side Scroller Game Project",
+  "main": "app.js",
+  "license": "MIT"
+}

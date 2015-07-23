@@ -1,0 +1,23 @@
+{
+  "name": "TheSideScroller",
+  "version": "1.0.0",
+  "description": "Quintus Side Scroller Game Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PavelDobranov/TA-Teamwork-JS-UI-And-DOM"
+  },
+  "author": "Team Rusty Nail",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PavelDobranov/TA-Teamwork-JS-UI-And-DOM/issues"
+  },
+  "dependencies": {
+    "express": "~4.13.1",
+    "jade": "~1.11.0"
+  }
+}
