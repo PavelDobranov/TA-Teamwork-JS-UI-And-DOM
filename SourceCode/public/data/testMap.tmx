@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="23" tilewidth="48" tileheight="48" nextobjectid="1">
+ <tileset firstgid="1" name="parts" tilewidth="48" tileheight="48">
+  <image source="../Downloads/parts.png" width="769" height="769"/>
+ </tileset>
+ <tileset firstgid="257" name="parts-non-transp" tilewidth="48" tileheight="48" spacing="1">
+  <image source="../Downloads/parts-non-transp.gif" width="769" height="769"/>
+ </tileset>
+ <layer name="background sky" width="50" height="23">
+  <properties>
+   <property name="type" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztz6EBAAAIw7D9/9xewnEBAhER3zZJAQAAAFh50HDxMAVFoHI=
+  </data>
+ </layer>
+ <layer name="background 2" width="50" height="23">
+  <properties>
+   <property name="type" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIwmEMVImP1yBzAj193AHgz0909J9gz1ND0TcDPYwGQWjYBSMbOA3WkaNglEwCkbBKKARAADOZgJa
+  </data>
+ </layer>
+ <layer name="terainee" width="50" height="23">
+  <properties>
+   <property name="collision" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztlgsKhDAMRAvuBTzE3v9o9QjLwgZKmImTWrC6DgwoTdK8fsS1lLLexFfXv3K8hGd7R1bHszIOVvdo/dFi/c16rrLrOCtHVj33Y7az9hW6H0g2tjSOpNzzkTIO1F87/wIc9YniGbt6F6L5EEf9mfUSeS+3AisxrKbnuLoejrn0cOT1BkZjSrwX4vB5Uf5Z8nx3OFdZDnVf1LOQrcNqtRwj5j1LvRw+picvis+u5ZH9yHxLUKySr+Yxjm3HldRi/0VqL1tnnnF8AMbwNsc=
+  </data>
+ </layer>
+ <layer name="additional collision" width="50" height="23">
+  <properties>
+   <property name="collision" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1NEJACAIRdEaqjFq/3Gi/wSpDJV7PoXqJVYpgI1W9/Uu1D2RsnsSoY/wz3KOtHvfZljreQ8AvBgf/6OfZ52KkBHQyjLPL++RpSfZTaoJBGk=
+  </data>
+ </layer>
+</map>
