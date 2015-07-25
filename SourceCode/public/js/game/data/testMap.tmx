@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="23" tilewidth="48" tileheight="48" nextobjectid="1">
  <tileset firstgid="1" name="parts" tilewidth="48" tileheight="48">
-  <image source="../Downloads/parts.png" width="769" height="769"/>
+  <image source="Downloads/parts.png" width="769" height="769"/>
  </tileset>
  <tileset firstgid="257" name="parts-non-transp" tilewidth="48" tileheight="48" spacing="1">
-  <image source="../Downloads/parts-non-transp.gif" width="769" height="769"/>
+  <image source="Downloads/parts-non-transp.gif" width="769" height="769"/>
  </tileset>
  <layer name="background sky" width="50" height="23">
   <properties>
