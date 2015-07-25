@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="23" tilewidth="48" tileheight="48" nextobjectid="9">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="23" tilewidth="48" tileheight="48" nextobjectid="11">
  <tileset firstgid="1" name="parts" tilewidth="48" tileheight="48">
   <image source="Downloads/parts.png" width="769" height="769"/>
  </tileset>
@@ -4642,4 +4642,7 @@
    <tile gid="0"/>
   </data>
  </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="10" gid="482" x="153.333" y="384" width="40" height="50"/>
+ </objectgroup>
 </map>
