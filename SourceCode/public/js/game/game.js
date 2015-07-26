@@ -27,8 +27,9 @@ $(function () {
   });
 
 
-  Q.loadTMX('level1.tmx, player.json', function () {
+  Q.loadTMX('level1.tmx, player.json, enemy.json', function () {
     Q.compileSheets('player-spritesheet.png', 'player.json');
+    Q.compileSheets('enemy-spritesheet.png', 'enemy.json');
     Q.animations("player", {
       rightIdle: { frames: [0, 1, 2], rate: 1 / 2, flip: false, loop: true },
       leftIdle: { frames: [0, 1, 2], rate: 1 / 2, flip: 'x', loop: true },
