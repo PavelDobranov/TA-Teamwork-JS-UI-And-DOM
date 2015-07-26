@@ -4,7 +4,7 @@
   <image source="../img/level1-spritesheet.png" width="1120" height="736"/>
  </tileset>
  <tileset firstgid="806" name="player-spritesheet" tilewidth="40" tileheight="50">
-  <image source="../img/player-spritesheet.png" width="400" height="200"/>
+  <image source="../img/player-spritesheet.png" width="400" height="150"/>
   <tile id="0">
    <properties>
     <property name="Class" value="Player"/>
@@ -13,6 +13,7 @@
  </tileset>
  <layer name="background" width="76" height="20">
   <properties>
+   <property name="boundingBox" value="true"/>
    <property name="type" value="0"/>
   </properties>
   <data>
@@ -1540,6 +1541,7 @@
  </layer>
  <layer name="collisions" width="76" height="20">
   <properties>
+   <property name="boundingBox" value="true"/>
    <property name="collision" value="true"/>
   </properties>
   <data>
