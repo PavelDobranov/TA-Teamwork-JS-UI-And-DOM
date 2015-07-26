@@ -13,7 +13,7 @@ Quintus.player = function (Q) {
       this.add('2d, platformerControls, animation');
     },
     step: function (dt) {
-      if (this.p.vx != 0 && this.p.vy === 0) {
+      if (this.p.vx !== 0 && this.p.vy === 0) {
         this.play(this.p.direction + 'Run');
       } else if (this.p.vy < 0) {
         this.play(this.p.direction + 'Jump');
