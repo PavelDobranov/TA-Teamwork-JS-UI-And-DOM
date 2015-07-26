@@ -17,17 +17,17 @@ $(function () {
 
   // Q.setImageSmoothing(false);
 
-  Q.scene('testMap', function (stage) {
+  Q.scene('level1', function (stage) {
     var player;
 
-    Q.stageTMX('testMapWithPlayer.tmx', stage);
+    Q.stageTMX('level1.tmx', stage);
 
     player = Q('Player').first();
     stage.add('viewport').follow(player, { x: true, y: true });
   });
 
 
-  Q.loadTMX('testMapWithPlayer.tmx, player.json', function () {
+  Q.loadTMX('level1.tmx, player.json', function () {
     Q.compileSheets('player-spritesheet.png', 'player.json');
     Q.animations("player", {
       rightIdle: { frames: [0, 1, 2], rate: 1 / 2, flip: false, loop: true },
@@ -44,6 +44,6 @@ $(function () {
       leftFire: { frames: [14, 15, 16], rate: 1 / 2, flip: 'x' , loop: true}
     });
 
-    Q.stageScene('testMap');
+    Q.stageScene('level1');
   });
 });
