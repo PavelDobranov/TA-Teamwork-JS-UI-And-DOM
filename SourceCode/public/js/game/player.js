@@ -38,17 +38,23 @@ Quintus.player = function (Q) {
         shoot: function () {
             var gamePlayer = this.p;
             var update = 200;
+            //TODO: DELETE CONSOLE.LOG
             console.log("SHOOOOOOOOT");
 
 
             if (Q.inputs['right']) {
                 update *= -1
             }
-            this.stage.insert(new Q.Bullet({
+            var currentBullet = new Q.Bullet({
                 x: gamePlayer.x,
                 y: gamePlayer.y,
                 vx: update
-            }))
+            });
+
+            //TODO: DELETE CONSOLE.LOG
+            console.log(currentBullet);
+            //debugger
+            this.stage.insert(currentBullet);
         }
     });
 };
