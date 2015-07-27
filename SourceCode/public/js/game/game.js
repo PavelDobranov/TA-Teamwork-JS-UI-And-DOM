@@ -38,13 +38,18 @@ $(function () {
             });
 
             this.add('2d');
-            this.add('animation')
+            this.add('animation');
+            this.on('hit');
         },
 
         step: function (dt) {
-            if (this.p.x < 50) {
+            if (this.p.x < 50 || this.p.x > 2380) {
                 this.destroy();
             }
+        },
+
+        hit: function (col) {
+            this.destroy();
         }
     });
     //*********************************************************************

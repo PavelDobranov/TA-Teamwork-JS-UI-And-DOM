@@ -14,10 +14,6 @@ Quintus.bullet = function(Q){
             this.add("2d");
         },
 
-        // TODO: Clear bullets:
-        // 1. Out of the game field
-        // 2. When hit sensor: false elements
-
         step: function (dt) {
             if (this.p.x < 35 ) {
                 this.destroy();
