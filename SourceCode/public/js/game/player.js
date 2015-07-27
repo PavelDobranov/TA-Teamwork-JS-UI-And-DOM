@@ -37,7 +37,7 @@ Quintus.player = function (Q) {
 
         shoot: function () {
             var gamePlayer = this.p;
-            var updateX = gamePlayer.w,
+            var updateX = gamePlayer.w - Q.FIRE_GUN_DISTANCE,
                 updateVX = 300;
 
             if (this.p.direction === 'left') {

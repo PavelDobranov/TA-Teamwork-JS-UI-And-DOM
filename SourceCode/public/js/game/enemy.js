@@ -9,7 +9,6 @@ Quintus.enemy = function (Q) {
                 sprite: 'enemy',
                 type: Q.SPRITE_ENEMY,
                 collisionMask: Q.SPRITE_BULLET | Q.SPRITE_PLAYER
-                //skipCollide: false
             });
             this.add('2d, aiBounce, animation');
 

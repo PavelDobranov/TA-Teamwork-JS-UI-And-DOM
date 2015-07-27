@@ -1,23 +1,23 @@
-Quintus.bullet = function(Q){
+Quintus.bullet = function (Q) {
 
-    Q.MovingSprite.extend("Bullet",{
+    Q.MovingSprite.extend("Bullet", {
         init: function (p) {
             this._super(p, {
-                frame: 15,
+                sheet: 'bullet-spritesheet',
+                frame: 0,
                 type: Q.SPRITE_BULLET,
                 collisionMask: Q.SPRITE_ENEMY,
-                gravityX: 0,
                 gravityY: 0,
                 sensor: true
             });
 
-            this.add("2d");
+            this.add('2d');
+            this.add('animation');
+            this.on('hit');
         },
 
-        step: function (dt) {
-            if (this.p.x < 35 ) {
-                this.destroy();
-            }
+        hit: function (col) {
+            this.destroy();
         }
-    })
+    });
 };

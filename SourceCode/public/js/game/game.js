@@ -9,7 +9,7 @@ $(function () {
         sound: true
     })
         .include('Scenes, Sprites, 2D, Input, Touch, UI, TMX, Anim')
-        .include('player, enemy')
+        .include('player, enemy, bullet')
         .setup('game-canvas', {
             maximize: "touch",
             //scaleToFit: true
@@ -17,42 +17,12 @@ $(function () {
         .controls()
         .touch();
 
-    // Q.setImageSmoothing(false);
+    Q.setImageSmoothing(false);
 
     Q.SPRITE_PLAYER = 1;
     Q.SPRITE_BULLET = 2;
     Q.SPRITE_ENEMY = 3;
-
-    //TODO: MOVE THIS!
-    //*********************************************************************
-    Q.MovingSprite.extend("Bullet", {
-        init: function (p) {
-            this._super(p, {
-                // TODO: INSERT SPRITE!
-                sheet: "level1-spritesheet",
-                frame: 15,
-                type: Q.SPRITE_BULLET,
-                collisionMask: Q.SPRITE_ENEMY,
-                gravityY: 0,
-                sensor: true
-            });
-
-            this.add('2d');
-            this.add('animation');
-            this.on('hit');
-        },
-
-        step: function (dt) {
-            if (this.p.x < 50 || this.p.x > 2380) {
-                this.destroy();
-            }
-        },
-
-        hit: function (col) {
-            this.destroy();
-        }
-    });
-    //*********************************************************************
+    Q.FIRE_GUN_DISTANCE = 10;
 
     // define scene
     Q.scene('level1', function (stage) {
@@ -84,6 +54,10 @@ $(function () {
 
         Q.animations('enemy', {
             walk: {frames: [0, 1, 2, 3, 4, 5, 6, 7, 8], rate: 1 / 9, loop: true}
+        });
+
+        Q.animations('bullet', {
+            default: {frames: [0, 1], rate: 1 / 5, loop: true}
         });
 
         Q.stageScene('level1');
