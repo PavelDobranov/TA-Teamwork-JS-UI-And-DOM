@@ -59,7 +59,7 @@ Quintus.player = function(Q) {
 
         die: function(col) {
             if (col.obj.isA('Enemy')) {
-                Q.stageScene('endGame', 3, this.p);
+                Q.stageScene('endGame', 1, this.p);
                 this.destroy();
             }
         }

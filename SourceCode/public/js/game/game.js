@@ -36,25 +36,24 @@ $(function() {
     });
 
     Q.scene('endGame', function(stage) {
-
         var container = stage.insert(new Q.UI.Container({
-                x: Q.el.width / 2,
-                y: Q.el.height / 2,
-                fill: "rgba(0,0,0,0.2)"
-            })),
-            button = container.insert(new Q.UI.Button({
-                x: 0,
-                y: 0,
-                fill: "#fff",
-                label: "Play Again"
-            })),
-            label = container.insert(new Q.UI.Text({
-                x: 10,
-                y: -10 - button.p.h,
-                label: 'You Died' + ' ' + '\n Score ' +
-                    stage.options
-                    .score
-            }));
+            x: Q.el.width / 2,
+            y: Q.el.height / 2,
+            fill: "rgba(0,0,0,0.2)"
+        }));
+        var button = container.insert(new Q.UI.Button({
+            x: 0,
+            y: 0,
+            fill: "#fff",
+            label: "Play Again"
+        }));
+        var label = container.insert(new Q.UI.Text({
+            x: 10,
+            y: -10 - button.p.h,
+            label: 'You Died' + ' ' + '\n Score ' +
+                stage.options
+                .score
+        }));
 
         button.on("click", function() {
             Q.clearStages();
