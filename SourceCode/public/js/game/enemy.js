@@ -1,7 +1,7 @@
-Quintus.enemy = function (Q) {
+Quintus.enemy = function(Q) {
 
     Q.Sprite.extend('Enemy', {
-        init: function (p) {
+        init: function(p) {
             this._super(p, {
                 vx: 50,
                 defaultDirection: 'right',
@@ -15,11 +15,14 @@ Quintus.enemy = function (Q) {
             this.on("hit");
             console.log(this.p);
         },
-        step: function (dt) {
+        step: function(dt) {
             this.play('walk');
             var dirX = this.p.vx / Math.abs(this.p.vx);
-            var ground = Q.stage().locate(this.p.x, this.p.y + this.p.h / 2 + 1, Q.SPRITE_DEFAULT); // Q.SPRITE_DEFAULT??
-            var nextElement = Q.stage().locate(this.p.x + dirX * this.p.w / 2 + dirX, this.p.y + this.p.h / 2 + 1, Q.SPRITE_DEFAULT); // Q.SPRITE_DEFAULT??
+            var ground = Q.stage().locate(this.p.x, this.p.y +
+                this.p.h / 2 + 1, Q.SPRITE_DEFAULT); // Q.SPRITE_DEFAULT??
+            var nextElement = Q.stage().locate(this.p.x + dirX *
+                this.p.w / 2 + dirX, this.p.y + this.p.h /
+                2 + 1, Q.SPRITE_DEFAULT); // Q.SPRITE_DEFAULT??
             var nextTile;
 
             if (nextElement instanceof Q.TileLayer) {
@@ -48,6 +51,12 @@ Quintus.enemy = function (Q) {
             if (col.obj.isA("Bullet")) {
                 this.destroy();
                 col.obj.destroy();
+
+                Q.SCORE += 10
+
+                // Updates the score on screen
+                Q.stageScene('currentScore', 3,
+                    Q('Player').first().p);
             }
         }
     })

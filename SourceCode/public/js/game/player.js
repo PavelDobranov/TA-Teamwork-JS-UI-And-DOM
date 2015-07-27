@@ -8,7 +8,6 @@ Quintus.player = function(Q) {
                 sprite: 'player',
                 jumpSpeed: -480,
                 speed: 200,
-                score: 0,
                 type: Q.SPRITE_PLAYER,
                 collisionMask: Q.SPRITE_ENEMY
             });

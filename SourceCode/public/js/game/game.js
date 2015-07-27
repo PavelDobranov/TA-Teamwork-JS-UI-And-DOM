@@ -23,6 +23,7 @@ $(function() {
     Q.SPRITE_BULLET = 2;
     Q.SPRITE_ENEMY = 3;
     Q.FIRE_GUN_DISTANCE = 10;
+    Q.SCORE = 0;
 
     // define scene
     Q.scene('level1', function(stage) {
@@ -33,6 +34,7 @@ $(function() {
             x: true,
             y: true
         });
+        Q.stageScene('currentScore', 3, Q('Player').first().p);
     });
 
     Q.scene('endGame', function(stage) {
@@ -50,15 +52,31 @@ $(function() {
         var label = container.insert(new Q.UI.Text({
             x: 10,
             y: -10 - button.p.h,
-            label: 'You Died' + ' ' + '\n Score ' +
-                stage.options
-                .score
+            label: 'You Died' + ' ' +
+                '\n Score ' + Q.SCORE
         }));
+
+        Q.SCORE = 0;
 
         button.on("click", function() {
             Q.clearStages();
             Q.stageScene('level1');
         });
+        container.fit(20);
+    });
+
+    Q.scene('currentScore', function(stage) {
+        var container = stage.insert(new Q.UI.Container({
+                x: Q.el.width - (Q.el.width - 20),
+                y: Q.el.height - (Q.el.height - 20)
+            })),
+            label = container.insert(new Q.UI.Text({
+                x: 200,
+                y: 20,
+                label: "Score: " + Q.SCORE,
+                color: "white"
+            }));
+
         container.fit(20);
     });
 

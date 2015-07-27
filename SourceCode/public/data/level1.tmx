@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="76" height="20" tilewidth="32" tileheight="32" nextobjectid="43">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="76" height="20" tilewidth="32" tileheight="32" nextobjectid="46">
  <tileset firstgid="1" name="level1-spritesheet" tilewidth="32" tileheight="32">
   <image source="../img/level1-spritesheet.png" width="1120" height="736"/>
   <tile id="559">
@@ -2058,12 +2058,12 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="97"/>
-   <tile gid="98"/>
-   <tile gid="99"/>
-   <tile gid="97"/>
-   <tile gid="98"/>
-   <tile gid="99"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -2210,12 +2210,12 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="97"/>
+   <tile gid="98"/>
+   <tile gid="99"/>
+   <tile gid="97"/>
+   <tile gid="98"/>
+   <tile gid="99"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -4613,13 +4613,14 @@
  <objectgroup name="Object Layer 1">
   <object id="3" gid="806" x="96" y="544" width="40" height="50"/>
   <object id="8" gid="836" x="99" y="254" width="30" height="36"/>
-  <object id="9" gid="836" x="183.5" y="180" width="30" height="36"/>
+  <object id="9" gid="836" x="320" y="192" width="30" height="36"/>
   <object id="12" gid="836" x="1271" y="509" width="30" height="36"/>
   <object id="13" gid="836" x="683" y="350" width="30" height="36"/>
   <object id="19" gid="836" x="1119" y="191.667" width="30" height="36"/>
   <object id="30" gid="836" x="1760.33" y="447" width="30" height="36"/>
   <object id="32" gid="836" x="2016.33" y="383.333" width="30" height="36"/>
-  <object id="38" gid="836" x="1895.5" y="191.5" width="30" height="36"/>
+  <object id="38" gid="836" x="980.5" y="127" width="30" height="36"/>
   <object id="41" gid="836" x="2145.75" y="191" width="30" height="36"/>
+  <object id="45" gid="836" x="1407.5" y="256" width="30" height="36"/>
  </objectgroup>
 </map>
