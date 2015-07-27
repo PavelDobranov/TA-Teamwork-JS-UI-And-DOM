@@ -1,22 +1,25 @@
-Quintus.player = function (Q) {
+Quintus.player = function(Q) {
     'use strict';
 
     Q.MovingSprite.extend('Player', {
-        init: function (p) {
+        init: function(p) {
             this._super(p, {
                 sheet: 'player-spritesheet',
                 sprite: 'player',
                 jumpSpeed: -480,
                 speed: 200,
+                score: 0,
                 type: Q.SPRITE_PLAYER,
                 collisionMask: Q.SPRITE_ENEMY
             });
 
             this.add('2d, platformerControls, animation');
 
+            this.on('hit.sprite', 'die');
+
             Q.input.on("fire", this, "shoot");
         },
-        step: function (dt) {
+        step: function(dt) {
             if (this.p.vx !== 0 && this.p.vy === 0) {
                 this.play(this.p.direction + 'Run');
             } else if (this.p.vy < 0) {
@@ -35,7 +38,7 @@ Quintus.player = function (Q) {
             }
         },
 
-        shoot: function () {
+        shoot: function() {
             var gamePlayer = this.p;
             var updateX = gamePlayer.w - Q.FIRE_GUN_DISTANCE,
                 updateVX = 300;
@@ -52,6 +55,13 @@ Quintus.player = function (Q) {
             });
 
             this.stage.insert(currentBullet);
+        },
+
+        die: function(col) {
+            if (col.obj.isA('Enemy')) {
+                Q.stageScene('endGame', 3, this.p);
+                this.destroy();
+            }
         }
     });
 };
