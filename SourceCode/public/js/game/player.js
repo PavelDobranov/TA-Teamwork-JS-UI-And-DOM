@@ -1,7 +1,7 @@
 Quintus.player = function (Q) {
     'use strict';
 
-    Q.Sprite.extend('Player', {
+    Q.MovingSprite.extend('Player', {
         init: function (p) {
             this._super(p, {
                 sheet: 'player-spritesheet',
@@ -37,23 +37,20 @@ Quintus.player = function (Q) {
 
         shoot: function () {
             var gamePlayer = this.p;
-            var update = 200;
-            //TODO: DELETE CONSOLE.LOG
-            console.log("SHOOOOOOOOT");
+            var updateX = gamePlayer.w,
+                updateVX = 300;
 
-
-            if (Q.inputs['right']) {
-                update *= -1
+            if (this.p.direction === 'left') {
+                updateX *= -1;
+                updateVX *= -1
             }
+
             var currentBullet = new Q.Bullet({
-                x: gamePlayer.x,
+                x: gamePlayer.x + updateX,
                 y: gamePlayer.y,
-                vx: update
+                vx: updateVX
             });
 
-            //TODO: DELETE CONSOLE.LOG
-            console.log(currentBullet);
-            //debugger
             this.stage.insert(currentBullet);
         }
     });

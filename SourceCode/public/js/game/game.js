@@ -12,7 +12,7 @@ $(function () {
         .include('player, enemy')
         .setup('game-canvas', {
             maximize: "touch",
-            scaleToFit: true
+            //scaleToFit: true
         })
         .controls()
         .touch();
@@ -24,12 +24,11 @@ $(function () {
     Q.SPRITE_ENEMY = 3;
 
     //TODO: MOVE THIS!
-    Q.MovingSprite.extend("Bullet",{
+    //*********************************************************************
+    Q.MovingSprite.extend("Bullet", {
         init: function (p) {
             this._super(p, {
-
                 // TODO: INSERT SPRITE!
-                sprite:"",
                 sheet: "level1-spritesheet",
                 frame: 15,
                 type: Q.SPRITE_BULLET,
@@ -38,15 +37,17 @@ $(function () {
                 sensor: true
             });
 
-            this.add("2d");
+            this.add('2d');
+            this.add('animation')
         },
 
         step: function (dt) {
-            if (this.p.x < 35) {
+            if (this.p.x < 50) {
                 this.destroy();
             }
         }
     });
+    //*********************************************************************
 
     // define scene
     Q.scene('level1', function (stage) {
@@ -58,8 +59,8 @@ $(function () {
 
     // load assets
     Q.loadTMX('level1.tmx', function () {
-         // Q.compileSheets('player-spritesheet.png', 'player.json');
-         // Q.compileSheets('enemy-spritesheet.png', 'enemy.json');
+        // Q.compileSheets('player-spritesheet.png', 'player.json');
+        // Q.compileSheets('enemy-spritesheet.png', 'enemy.json');
 
         Q.animations("player", {
             rightIdle: {frames: [0, 1, 2], rate: 1 / 2, flip: false, loop: true},

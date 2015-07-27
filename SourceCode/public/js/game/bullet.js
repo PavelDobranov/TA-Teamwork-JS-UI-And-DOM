@@ -6,6 +6,7 @@ Quintus.bullet = function(Q){
                 frame: 15,
                 type: Q.SPRITE_BULLET,
                 collisionMask: Q.SPRITE_ENEMY,
+                gravityX: 0,
                 gravityY: 0,
                 sensor: true
             });
@@ -13,8 +14,12 @@ Quintus.bullet = function(Q){
             this.add("2d");
         },
 
+        // TODO: Clear bullets:
+        // 1. Out of the game field
+        // 2. When hit sensor: false elements
+
         step: function (dt) {
-            if (this.p.x < 35 || this.p.x > 760) {
+            if (this.p.x < 35 ) {
                 this.destroy();
             }
         }
