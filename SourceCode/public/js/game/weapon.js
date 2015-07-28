@@ -6,7 +6,7 @@ Quintus.weapon = function (Q) {
       this.entity.p.canShoot = true;
     },
     extend: {
-      lounchBullet: function () {
+      launchBullet: function () {
         var entity = this,
           directionAsNumber = entity.p.direction === 'right' ? 1 : -1,
           bulletX = entity.p.x + Q.FIRE_GUN_DISTANCE * directionAsNumber,

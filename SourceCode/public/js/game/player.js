@@ -10,14 +10,13 @@ Quintus.player = function (Q) {
         collisionMask: Q.SPRITE_ENEMY,
         jumpSpeed: Q.PLAYER_JUMP_SPEED,
         speed: Q.PLAYER_SPEED,
-
       });
 
       this.add('2d, platformerControls, animation');
       this.add('weapon');
 
       Q.input.on('fire', this, 'shoot');
-      this.on('fired', this, 'lounchBullet');
+      this.on('fired', this, 'launchBullet');
       this.on('hit.sprite', 'die');
     },
     shoot: function () {
