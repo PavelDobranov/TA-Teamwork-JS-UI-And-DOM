@@ -51,9 +51,10 @@ Quintus.enemy = function(Q) {
                 this.destroy();
                 col.obj.destroy();
 
+                // Update score
                 Q.SCORE += 10
 
-                // Updates the score on screen
+                // Display new score on screen
                 Q.stageScene('currentScore', 3,
                     Q('Player').first().p);
             }

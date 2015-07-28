@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="76" height="20" tilewidth="32" tileheight="32" nextobjectid="46">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="76" height="20" tilewidth="32" tileheight="32" nextobjectid="81">
  <tileset firstgid="1" name="level1-spritesheet" tilewidth="32" tileheight="32">
   <image source="../img/level1-spritesheet.png" width="1120" height="736"/>
   <tile id="559">
@@ -26,6 +26,14 @@
  </tileset>
  <tileset firstgid="845" name="bullet-spritesheet" tilewidth="16" tileheight="5">
   <image source="../img/bullet-spritesheet.png" width="32" height="5"/>
+ </tileset>
+ <tileset firstgid="847" name="deadly-ground-spritesheet" tilewidth="32" tileheight="32">
+  <image source="../img/deadly-ground-spritesheet.png" width="160" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="Class" value="DeadlyGround"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="background" width="76" height="20">
   <properties>
@@ -4622,5 +4630,28 @@
   <object id="38" gid="836" x="980.5" y="127" width="30" height="36"/>
   <object id="41" gid="836" x="2145.75" y="191" width="30" height="36"/>
   <object id="45" gid="836" x="1407.5" y="256" width="30" height="36"/>
+  <object id="46" gid="847" x="576.75" y="641.25" width="32" height="32"/>
+  <object id="47" gid="847" x="609.25" y="640.75" width="32" height="32"/>
+  <object id="48" gid="847" x="640.75" y="640.5" width="32" height="32"/>
+  <object id="49" gid="847" x="672.25" y="640.25" width="32" height="32"/>
+  <object id="50" gid="847" x="1408.25" y="641" width="32" height="32"/>
+  <object id="53" gid="847" x="1441.25" y="641.25" width="32" height="32"/>
+  <object id="55" gid="847" x="1473.25" y="640.5" width="32" height="32"/>
+  <object id="57" gid="847" x="1505" y="641" width="32" height="32"/>
+  <object id="58" gid="847" x="1537.25" y="640.5" width="32" height="32"/>
+  <object id="59" gid="847" x="1569.25" y="640.75" width="32" height="32"/>
+  <object id="60" gid="847" x="1602" y="640.25" width="32" height="32"/>
+  <object id="61" gid="847" x="1632.75" y="640.25" width="32" height="32"/>
+  <object id="62" gid="847" x="1857.75" y="640.25" width="32" height="32"/>
+  <object id="64" gid="847" x="1889.5" y="640.25" width="32" height="32"/>
+  <object id="65" gid="847" x="1921" y="640.25" width="32" height="32"/>
+  <object id="66" gid="847" x="1953.25" y="640.5" width="32" height="32"/>
+  <object id="69" gid="847" x="1985.75" y="641" width="32" height="32"/>
+  <object id="71" gid="847" x="2017.5" y="640.75" width="32" height="32"/>
+  <object id="72" gid="847" x="2049.25" y="640.5" width="32" height="32"/>
+  <object id="74" gid="847" x="2081.5" y="640.25" width="32" height="32"/>
+  <object id="75" gid="847" x="2113.5" y="640.5" width="32" height="32"/>
+  <object id="78" gid="847" x="2145.75" y="640.5" width="32" height="32"/>
+  <object id="80" gid="847" x="2176.5" y="640.5" width="32" height="32"/>
  </objectgroup>
 </map>

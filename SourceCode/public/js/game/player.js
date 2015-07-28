@@ -1,8 +1,8 @@
-Quintus.player = function (Q) {
+Quintus.player = function(Q) {
     'use strict';
 
     Q.Sprite.extend('Player', {
-        init: function (p) {
+        init: function(p) {
             this._super(p, {
                 sheet: 'player-spritesheet',
                 sprite: 'player',
@@ -20,7 +20,7 @@ Quintus.player = function (Q) {
             this.on('hit.sprite', 'die');
         },
 
-        shoot: function () {
+        shoot: function() {
             var that = this;
 
             if (!that.p.canShoot) {
@@ -30,7 +30,7 @@ Quintus.player = function (Q) {
             this.play(this.p.direction + 'Shoot', 1);
         },
 
-        step: function (dt) {
+        step: function(dt) {
             if (this.p.vx !== 0 && this.p.vy === 0) {
                 this.play(this.p.direction + 'Run');
             } else if (this.p.vy < 0) {
@@ -51,8 +51,9 @@ Quintus.player = function (Q) {
             }
         },
 
-        die: function (col) {
-            if (col.obj.isA('Enemy')) {
+        die: function(col) {
+            if (col.obj.isA('Enemy') ||
+                col.obj.isA('DeadlyGround')) {
                 console.log(col);
                 Q.stageScene('endGame', 1, this.p);
                 this.destroy();
