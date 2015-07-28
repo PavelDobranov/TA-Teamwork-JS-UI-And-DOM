@@ -1,66 +1,55 @@
-Quintus.player = function(Q) {
-    'use strict';
+Quintus.player = function (Q) {
+  'use strict';
 
-    Q.MovingSprite.extend('Player', {
-        init: function(p) {
-            this._super(p, {
-                sheet: 'player-spritesheet',
-                sprite: 'player',
-                jumpSpeed: -480,
-                speed: 200,
-                type: Q.SPRITE_PLAYER,
-                collisionMask: Q.SPRITE_ENEMY
-            });
+  Q.Sprite.extend('Player', {
+    init: function (p) {
+      this._super(p, {
+        sheet: 'player-spritesheet',
+        sprite: 'player',
+        type: Q.SPRITE_PLAYER,
+        collisionMask: Q.SPRITE_ENEMY,
+        jumpSpeed: Q.PLAYER_JUMP_SPEED,
+        speed: Q.PLAYER_SPEED,
 
-            this.add('2d, platformerControls, animation');
+      });
 
-            this.on('hit.sprite', 'die');
+      this.add('2d, platformerControls, animation');
+      this.add('weapon');
 
-            Q.input.on("fire", this, "shoot");
-        },
-        step: function(dt) {
-            if (this.p.vx !== 0 && this.p.vy === 0) {
-                this.play(this.p.direction + 'Run');
-            } else if (this.p.vy < 0) {
-                this.play(this.p.direction + 'Jump');
-            } else if (this.p.vy > 0) {
-                this.play(this.p.direction + 'Fall');
-            } else {
-                this.play(this.p.direction + 'Idle');
-            }
+      Q.input.on('fire', this, 'shoot');
+      this.on('fired', this, 'lounchBullet');
+      this.on('hit.sprite', 'die');
+    },
+    shoot: function () {
+      var that = this;
 
-            if (Q.inputs['down']) {
-                this.play(this.p.direction + 'Duck');
-            }
-            if (Q.inputs['fire']) {
-                this.play(this.p.direction + 'Fire');
-            }
-        },
+      if (!that.p.canShoot) {
+        return;
+      }
 
-        shoot: function() {
-            var gamePlayer = this.p;
-            var updateX = gamePlayer.w - Q.FIRE_GUN_DISTANCE,
-                updateVX = 300;
+      this.play(this.p.direction + 'Shoot', 1);
+    },
+    step: function (dt) {
+      if (this.p.vx !== 0 && this.p.vy === 0) {
+        this.play(this.p.direction + 'Run');
+      } else if (this.p.vy < 0) {
+        this.play(this.p.direction + 'Jump');
+      } else if (this.p.vy > 0) {
+        this.play(this.p.direction + 'Fall');
+      } else {
+        this.play(this.p.direction + 'Idle');
+      }
 
-            if (this.p.direction === 'left') {
-                updateX *= -1;
-                updateVX *= -1
-            }
-
-            var currentBullet = new Q.Bullet({
-                x: gamePlayer.x + updateX,
-                y: gamePlayer.y,
-                vx: updateVX
-            });
-
-            this.stage.insert(currentBullet);
-        },
-
-        die: function(col) {
-            if (col.obj.isA('Enemy')) {
-                Q.stageScene('endGame', 1, this.p);
-                this.destroy();
-            }
-        }
-    });
+      if (Q.inputs['down']) {
+        this.play(this.p.direction + 'Duck');
+      }
+    },
+    die: function (col) {
+      if (col.obj.isA('Enemy')) {
+        console.log(col);
+        Q.stageScene('endGame', 1, this.p);
+        this.destroy();
+      }
+    }
+  });
 };

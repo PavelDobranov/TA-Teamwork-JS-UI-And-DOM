@@ -13,7 +13,6 @@ Quintus.enemy = function(Q) {
             this.add('2d, aiBounce, animation');
 
             this.on("hit");
-            console.log(this.p);
         },
         step: function(dt) {
             this.play('walk');
