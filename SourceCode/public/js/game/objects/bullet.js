@@ -1,27 +1,30 @@
-Quintus.bullet = function (Q) {
-  'use strict';
+/* globals Quintus */
+Quintus.bullet = function(Q) {
+    'use strict';
 
-  Q.Sprite.extend('Bullet', {
-    init: function (p) {
-      this._super(p, {
-        sheet: 'bullet-spritesheet',
-        sprite: 'bullet',
-        gravityY: 0,
-        sensor: true
-      });
+    Q.Sprite.extend('Bullet', {
+        init: function(p) {
+            var bulletConfig = Q.config.bullet;
 
-      this.add('2d, animation');
-      this.play(this.p.direction);
-      this.on('hit');
-    },
-    hit: function (collision) {
-      if (collision.obj.p.collisionMask === Q.SPRITE_NONE) {
-        return;
-      }
+            this._super(p, {
+                sheet: bulletConfig.sheet,
+                sprite: bulletConfig.sprite,
+                gravity: bulletConfig.gravity,
+                sensor: true
+            });
 
-      if (collision.obj.p.collisionMask !== Q.SPRITE_FRIENDLY) {
-        this.destroy();
-      }
-    }
-  });
+            this.add('2d, animation');
+            this.play(this.p.direction);
+            this.on('hit');
+        },
+        hit: function(collision) {
+            if (collision.obj.p.collisionMask === Q.SPRITE_NONE) {
+                return;
+            }
+
+            if (collision.obj.p.collisionMask !== Q.SPRITE_FRIENDLY) {
+                this.destroy();
+            }
+        }
+    });
 };
