@@ -13,7 +13,7 @@ Quintus.weapon = function (Q) {
           bulletY = entity.p.y,
           bulletVelocity = Q.BULLET_VELOCITY * directionAsNumber,
           bulletType = entity.p.type,
-          bulletCollisionMask = entity.p.collisionMask | Q.SPRITE_DEFAULT,
+          bulletCollisionMask = entity.p.collisionMask,
           bulletDirection = entity.p.direction,
           bullet;
 

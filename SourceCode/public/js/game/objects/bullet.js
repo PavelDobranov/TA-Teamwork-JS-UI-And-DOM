@@ -14,8 +14,12 @@ Quintus.bullet = function (Q) {
       this.play(this.p.direction);
       this.on('hit');
     },
-    hit: function (col) {
-      if (!col.obj.isA('Player')) {
+    hit: function (collision) {
+      if (collision.obj.p.collisionMask === Q.SPRITE_NONE) {
+        return;
+      }
+
+      if (collision.obj.p.collisionMask !== Q.SPRITE_FRIENDLY) {
         this.destroy();
       }
     }
