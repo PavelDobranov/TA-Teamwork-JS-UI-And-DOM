@@ -1,22 +1,6 @@
-doctype
-html
-  head
-    // link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
-    // link(rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css")
-    link(rel="stylesheet" href="./css/site.css")
-  body
-    canvas#game-canvas(width="1200", height="600")
-    script(type="text/javascript", src="https://code.jquery.com/jquery-1.11.3.min.js")
-    script(type="text/javascript", src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
-    script(type="text/javascript", src="http://cdn.html5quintus.com/v0.2.0/quintus-all.js")
+extends shared/layout
 
-    script(type="text/javascript", src="./js/game/config/config.js")
-    script(type="text/javascript", src="./js/game/objects/player.js")
-    script(type="text/javascript", src="./js/game/objects/marine.js")
-    script(type="text/javascript", src="./js/game/objects/mummy.js")
-    script(type="text/javascript", src="./js/game/objects/bullet.js")
-    script(type="text/javascript", src="./js/game/objects/deadlyGround.js")
-    script(type="text/javascript", src="./js/game/components/enemy.js")
-    script(type="text/javascript", src="./js/game/components/aiPatrool.js")
-    script(type="text/javascript", src="./js/game/components/weapon.js")
-    script(type="text/javascript", src="./js/game/game.js")
+block main-content
+  .row
+    .jumbotron
+      p Home placeholder

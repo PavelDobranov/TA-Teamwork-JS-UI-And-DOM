@@ -1,4 +1,75 @@
 body {
-    margin-top: 50px;
-    background-color: #000;
+  background-color: #444;
+}
+
+svg {
+  margin-top: 20px;
+  height: 50px;
+}
+
+h1 {
+  color: #FFA500;
+}
+
+p, h2, ul {
+  color: #FFF;
+}
+
+.jumbotron p, .jumbotron ul {
+  color: #000;
+}
+
+#game-canvas {
+  width: 100px;
+  box-shadow: 0px 0px 10px #FFA500;
+}
+
+#forkongithub {
+  width: 200px;
+  height:200px;
+  overflow: hidden;
+  position: fixed;
+  display: block;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+
+#forkongithub a {
+  width: 300px;
+  position: absolute;
+  top: 50px;
+  right:-85px;
+  transform: rotate(45deg);
+  background: #FFA500;
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 40px;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+}
+
+#forkongithub a:hover {
+  background:#000;
+  color:#FFA500;
+}
+
+#forkongithub a::before,
+#forkongithub a::after {
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 2px;
+  background:#fff;
+}
+
+#forkongithub a::after {
+  bottom: 1px;
+  top: auto;
 }
