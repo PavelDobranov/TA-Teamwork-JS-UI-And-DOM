@@ -32,15 +32,22 @@ Quintus.enemy = function(Q) {
                 if (collision.obj.p.type === Q.SPRITE_FRIENDLY &&
                     !collision.obj.isA('Player')) {
 
-                    var direction = entity.getDirection();
+                    this.p.health -= collision.obj.p.damagePoints;
 
-                    entity.p.vx = 0;
-                    entity.p.points = entity.p.deadPoints;
-                    entity.p.type = Q.TYPE_NONE;
-                    entity.p.sensor = true;
-                    entity.play(direction + 'Die');
+                    if (this.p.health <= 0) {
 
-                    Q.SCORE += 10
+                        var direction = entity.getDirection();
+
+                        entity.p.vx = 0;
+                        entity.p.points = entity.p.deadPoints;
+                        entity.p.type = Q.TYPE_NONE;
+                        entity.p.sensor = true;
+                        entity.play(direction + 'Die');
+
+                        Q.SCORE += this.p.scorePoints;
+
+                        Q.stageScene('currentScore', 3, Q('Player').first().p);
+                    }
 
                     Q.stageScene('currentScore', 3, Q('Player')
                         .first().p);

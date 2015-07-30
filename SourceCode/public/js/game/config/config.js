@@ -89,6 +89,9 @@ Quintus.config = function(Q) {
             sheet: 'marine-spritesheet',
             sprite: 'marine',
             vx: 50,
+            health: 20,
+            damagePoints: 5,
+            scorePoints: 20,
             standingPoints: [
                 [-12, 20],
                 [-12, -16],
@@ -133,6 +136,9 @@ Quintus.config = function(Q) {
             sheet: 'mummy-spritesheet',
             sprite: 'mummy',
             vx: 20,
+            health: 30,
+            damagePoints: 10,
+            scorePoints: 30,
             standingPoints: [
                 [-13, 25],
                 [-13, -18],
@@ -178,6 +184,7 @@ Quintus.config = function(Q) {
             sprite: 'bullet',
             vx: 500,
             gravity: 0,
+            damagePoints: 10,
             animations: {
                 right: {
                     frames: [0, 1],

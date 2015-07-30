@@ -11,7 +11,10 @@ Quintus.Marine = function(Q) {
                 sheet: marineConfig.sheet,
                 sprite: marineConfig.sprite,
                 standingPoints: marineConfig.standingPoints,
-                deadPoints: marineConfig.deadPoints
+                deadPoints: marineConfig.deadPoints,
+                health: marineConfig.health,
+                damagePoints: marineConfig.damagePoints,
+                scorePoints: marineConfig.scorePoints
             });
 
             this.add('enemy');

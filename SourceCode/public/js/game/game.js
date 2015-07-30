@@ -1,16 +1,16 @@
 /* globals Quintus */
-$(function() {
+$(function () {
     'use strict';
 
     var Q = window.Q = Quintus({
-            imagePath: '../../img/',
-            dataPath: '../../data/',
-            audioPath: '../../audio/',
-            audioSupported: ['mp3', 'ogg'],
-            maximize: 'touch',
-            sound: true,
-            development: true
-        })
+        imagePath: '../../img/',
+        dataPath: '../../data/',
+        audioPath: '../../audio/',
+        audioSupported: ['mp3', 'ogg'],
+        maximize: 'touch',
+        sound: true,
+        development: true
+    })
         .setup('game-canvas')
         .include('Scenes, Sprites, 2D, Input, Touch, UI, TMX, Anim')
         .include('config')
@@ -32,9 +32,10 @@ $(function() {
     Q.PLAYER_SPEED = 200;
     Q.PLAYER_JUMP_SPEED = -480;
     Q.SCORE = 0;
+    Q.HEALTH = 0;
 
     // define scene
-    Q.scene('level1', function(stage) {
+    Q.scene('level1', function (stage) {
         var player;
         Q.stageTMX('level1.tmx', stage);
         player = Q('Player').first();
@@ -45,7 +46,7 @@ $(function() {
         Q.stageScene('currentScore', 3, Q('Player').first().p);
     });
 
-    Q.scene('endGame', function(stage) {
+    Q.scene('endGame', function (stage) {
         var container = stage.insert(new Q.UI.Container({
             x: Q.el.width / 2,
             y: Q.el.height / 2,
@@ -61,27 +62,27 @@ $(function() {
             x: 10,
             y: -10 - button.p.h,
             label: 'You Died' + ' ' +
-                '\n Score ' + Q.SCORE
+            '\n Score ' + Q.SCORE
         }));
 
         Q.SCORE = 0;
 
-        button.on("click", function() {
+        button.on("click", function () {
             Q.clearStages();
             Q.stageScene('level1');
         });
         container.fit(20);
     });
 
-    Q.scene('currentScore', function(stage) {
+    Q.scene('currentScore', function (stage) {
         var container = stage.insert(new Q.UI.Container({
                 x: Q.el.width - (Q.el.width - 20),
                 y: Q.el.height - (Q.el.height - 20)
             })),
             label = container.insert(new Q.UI.Text({
-                x: 80,
+                x: 120,
                 y: 10,
-                label: "Score: " + Q.SCORE,
+                label: "Score: " + Q.SCORE + " Health: " + Q.HEALTH,
                 color: "white"
             }));
 
@@ -89,7 +90,7 @@ $(function() {
     });
 
     // load assets
-    Q.loadTMX('level1.tmx', function() {
+    Q.loadTMX('level1.tmx', function () {
         // Q.compileSheets('player-spritesheet.png', 'player.json');
         // Q.compileSheets('enemy-spritesheet.png', 'enemy.json');
 

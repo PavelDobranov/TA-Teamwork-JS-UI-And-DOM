@@ -10,7 +10,8 @@ Quintus.bullet = function(Q) {
                 sheet: bulletConfig.sheet,
                 sprite: bulletConfig.sprite,
                 gravity: bulletConfig.gravity,
-                sensor: true
+                sensor: true,
+                damagePoints: bulletConfig.damagePoints
             });
 
             this.add('2d, animation');

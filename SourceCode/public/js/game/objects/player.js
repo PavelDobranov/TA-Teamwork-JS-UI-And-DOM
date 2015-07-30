@@ -10,12 +10,15 @@ Quintus.Player = function(Q) {
                 speed: playerConfig.speed,
                 jumpSpeed: playerConfig.jumpSpeed,
                 type: Q.SPRITE_FRIENDLY,
-                collisionMask: Q.SPRITE_ENEMY | Q.SPRITE_DEFAULT
+                collisionMask: Q.SPRITE_ENEMY | Q.SPRITE_DEFAULT,
+                health: 200,
+                damagePoints: 10
             });
 
             this.add('2d, platformerControls, animation');
             this.add('weapon');
 
+            Q.HEALTH = this.p.health;
             Q.input.on('fire', this, 'shoot');
             this.on('fired', this, 'launchBullet');
             this.on('hit.sprite', 'die');
@@ -55,8 +58,18 @@ Quintus.Player = function(Q) {
 
         die: function(collision) {
             if (collision.obj.p.type === Q.SPRITE_ENEMY) {
-                Q.stageScene('endGame', 1, this.p);
-                this.destroy();
+                this.p.health -= collision.obj.p.damagePoints;
+                if (this.p.health < 0) {
+                    this.p.health = 0
+                }
+
+                Q.HEALTH = this.p.health;
+                Q.stageScene('currentScore', 3, Q('Player').first().p);
+
+                if (this.p.health <= 0) {
+                    Q.stageScene('endGame', 1, this.p);
+                    this.destroy();
+                }
             }
         }
     });

@@ -11,7 +11,10 @@ Quintus.Mummy = function(Q) {
                 sheet: mummyConfig.sheet,
                 sprite: mummyConfig.sprite,
                 standingPoints: mummyConfig.standingPoints,
-                deadPoints: mummyConfig.deadPoints
+                deadPoints: mummyConfig.deadPoints,
+                health: mummyConfig.health,
+                damagePoints: mummyConfig.damagePoints,
+                scorePoints: mummyConfig.scorePoints
             });
 
             this.add('enemy');
