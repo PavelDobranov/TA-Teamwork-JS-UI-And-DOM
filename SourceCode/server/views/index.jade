@@ -1,6 +1,11 @@
 extends shared/layout
-
 block main-content
   .row
-    .jumbotron
-      p Home placeholder
+    #game-logo.twelve.columns
+  .row
+    .twelve.columns.center
+      h1 JavaScript Game Powered By Quintus
+      a(href="http://www.html5quintus.com/", target="_blank")
+        img(src="./img/www/quintus-logo.png" alt="quintus-logo")
+block page-scripts
+  script(src="./js/www/logo.js")

@@ -1,23 +1,27 @@
 doctype
 html
   head
-    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
-    link(rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css")
-    link(rel="stylesheet" href="./css/site.css")
+    meta(charset="urf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title The Side Scroller
+    link(rel="stylesheet", type="text/css", href="//fonts.googleapis.com/css?family=Raleway:400,300,600")
+    link(rel="stylesheet", type="text/css", href="./lib/skeleton/css/normalize.css")
+    link(rel="stylesheet", type="text/css", href="./lib/skeleton/css/skeleton.css")
+    link(rel="stylesheet", type="text/css", href="./css/site.css")
   body
-    span#forkongithub
-      a(href="https://github.com/PavelDobranov/TA-Teamwork-JS-UI-And-DOM", target="_blank") Fork us on GitHub
     .container
-      .row
-        #nav
-
-       block main-content
-
-      .row
-        hr
-        footer
-          p.text-center
-            a(href="http://telerikacademy.com/") Telerik Academy 
-            | 2015 - JavaScript UI and DOM
-          p.text-center Team Rusty Nail
+      section.header
+        .row
+          .twelve.columns
+            #nav
+            span#forkongithub
+              a(href="https://github.com/PavelDobranov/TA-Teamwork-JS-UI-And-DOM", target="_blank") Fork us on GitHub
+      section.main-content
+        block main-content
+      hr
+      footer.center
+        p
+          a(href="http://telerikacademy.com/") Telerik Academy
+          |&nbsp; 2015 - JavaScript UI and DOM
+        p Team Rusty Nail
      include scripts

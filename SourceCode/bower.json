@@ -9,6 +9,9 @@
   "main": "app.js",
   "license": "MIT",
   "dependencies": {
-    "raphael": "~2.1.4"
+    "raphael": "~2.1.4",
+    "quintus": "~0.1.5",
+    "skeleton": "~2.0.4",
+    "jquery": "~2.1.4"
   }
 }

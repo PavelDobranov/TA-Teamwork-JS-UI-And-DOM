@@ -1,10 +1,6 @@
 extends ../shared/layout
-
 block main-content
-  .row
-    .col-md-12
-      canvas#game-canvas(height="600", width="1100")
-
+  canvas#game-canvas(width="950", height="600")
 block page-scripts
   script(type="text/javascript", src="http://cdn.html5quintus.com/v0.2.0/quintus-all.js")
   script(type="text/javascript", src="./js/game/config/config.js")
@@ -12,8 +8,14 @@ block page-scripts
   script(type="text/javascript", src="./js/game/objects/marine.js")
   script(type="text/javascript", src="./js/game/objects/mummy.js")
   script(type="text/javascript", src="./js/game/objects/bullet.js")
-  script(type="text/javascript", src="./js/game/objects/deadlyGround.js")
+  script(type="text/javascript", src="./js/game/objects/grinder.js")
+  script(type="text/javascript", src="./js/game/objects/teleport.js")
+  script(type="text/javascript", src="./js/game/components/creature.js")
   script(type="text/javascript", src="./js/game/components/enemy.js")
   script(type="text/javascript", src="./js/game/components/aiPatrool.js")
   script(type="text/javascript", src="./js/game/components/weapon.js")
+  script(type="text/javascript", src="./js/game/scenes/startGameScene.js")
+  script(type="text/javascript", src="./js/game/scenes/playFactoryScene.js")
+  script(type="text/javascript", src="./js/game/scenes/gameOverScene.js")
+  script(type="text/javascript", src="./js/game/scenes/levelCompleteScene.js")
   script(type="text/javascript", src="./js/game/game.js")

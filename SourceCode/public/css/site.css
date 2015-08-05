@@ -1,27 +1,22 @@
 body {
   background-color: #444;
-}
-
-svg {
-  margin-top: 20px;
-  height: 50px;
-}
-
-h1 {
-  color: #FFA500;
-}
-
-p, h2, ul {
   color: #FFF;
 }
 
-.jumbotron p, .jumbotron ul {
-  color: #000;
+h1, h2, h3, h4, h5, h6  {
+  color: #FFA500;
 }
 
-#game-canvas {
-  width: 100px;
-  box-shadow: 0px 0px 10px #FFA500;
+footer {
+  font-size: 1.2rem;
+  line-height: 0.4rem;
+}
+
+#nav svg {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 400px;
+  height: 50px;
 }
 
 #forkongithub {
@@ -39,7 +34,7 @@ p, h2, ul {
   width: 300px;
   position: absolute;
   top: 50px;
-  right:-85px;
+  right:-120px;
   transform: rotate(45deg);
   background: #FFA500;
   color: #000;
@@ -50,6 +45,12 @@ p, h2, ul {
   font-size: 1.5rem;
   line-height: 2.5rem;
   box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #forkongithub a:hover {
@@ -72,4 +73,28 @@ p, h2, ul {
 #forkongithub a::after {
   bottom: 1px;
   top: auto;
+}
+
+#game-canvas {
+  box-shadow: 0px 0px 10px #FFA500;
+}
+
+.center {
+  text-align: center;
+}
+
+.key {
+  display: inline-block;
+  border: 1px solid #FFA500;
+  border-radius: 3px;
+  margin-right: 10px;
+  min-width: 30px;
+  padding: 10px
+}
+
+.code {
+  display: inline-block;
+  border-radius: 3px;
+  background-color: #000;
+  padding: 5px
 }

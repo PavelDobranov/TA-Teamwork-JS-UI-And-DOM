@@ -1,6 +1,114 @@
 extends ../shared/layout
-
 block main-content
   .row
-    .jumbotron
-      p Documentation placeholder
+    .twevle.columns
+      h1.animated.fadeInLeft Documentation
+      hr
+      h3 Introduction
+      p The Side Scroller was developed as a team project for the JavaScript UI & DOM course in Telerik Academy by the "Rusty Nail" team.
+      h3 Team Members
+      table.u-full-width
+        thead
+          tr
+            th Name
+            th Username
+        tbody
+          tr
+            td Zhenya Racheva
+            td zhenia.racheva
+        tbody
+          tr
+            td Pavel Dobranov
+            td Pavel_Dobranov
+        tbody
+          tr
+            td Stoyan	Uzunov
+            td suzunov
+        tbody
+          tr
+            td Petar Metodiev
+            td Twick
+        tbody
+          tr
+            td Galin Ivanov
+            td reddog
+        tbody
+          tr
+            td Georgi Petrov
+            td BladeScar
+        tbody
+          tr
+            td Petar Dimanov
+            td pdimanov
+    h3 Game Description
+    h5 Gameplay
+    p The player controls soldier. He can move left and right, jump, squat and shoot. The player's objective is to destroy all the enemies and reaches the teleport. The teleport will take player to the next level.
+    h5 Controls
+    p
+      span.key ↑
+      | Jump
+    p
+      span.key ↓
+      | Squat
+    p
+      span.key ←
+      | Move Left
+    p
+      span.key →
+      | Move Right
+    p
+      span.key spacebar
+      | Fire
+    h3 Programming Details
+    h5 Built-in Modules
+    ul
+      li Scenes
+      li Sprites
+      li 2D
+      li Input
+      li Touch
+      li TMX
+      li UI
+      li Anim
+    h5 Custom Modules
+    ul
+      li Objects
+        ul
+          li Player
+          li Marine
+          li Mummy
+          li Grinder
+          li Bullet
+      li Components
+        ul
+          li creature
+          li enemy
+          li weapon
+          li teleport
+          li aiPatrool
+      li Scenes
+        ul
+          li startGameScene
+          li playFactoryScene
+          li levelCompleteScene
+          li gameOverScenes
+    h3 Running the project on local machine
+    ul
+      li install &nbsp;
+        a(href="https://nodejs.org/", title="https://nodejs.org/", target="_blank") Node.js
+      li install &nbsp;
+        a(href="http://bower.io/", title="http://bower.io/", target="_blank") Bower
+        ul
+          li Open CMD/Terminal and run &nbsp;
+            span.code npm install -g bower
+      li Checkout the &nbsp;
+        a(href="https://github.com/PavelDobranov/TA-Teamwork-JS-UI-And-DOM", title="The Side Scroller", target="_blank") repository
+      li Open CMD/Terminal and navigate to the "SourceCode" folder
+        ul
+          li Run  &nbsp;
+            span.code npm install
+          li Run  &nbsp;
+            span.code bower install
+          li Run  &nbsp;
+            span.code node server.js
+      li Open a new browser tab, and navigate to the following url: http://localhost:3030/

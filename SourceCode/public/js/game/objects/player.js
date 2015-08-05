@@ -1,76 +1,69 @@
 /* globals Quintus */
-Quintus.Player = function(Q) {
-    Q.Sprite.extend('Player', {
-        init: function(p) {
-            var playerConfig = Q.config.player;
 
-            this._super(p, {
-                sheet: playerConfig.sheet,
-                sprite: playerConfig.sprite,
-                speed: playerConfig.speed,
-                jumpSpeed: playerConfig.jumpSpeed,
-                type: Q.SPRITE_FRIENDLY,
-                collisionMask: Q.SPRITE_ENEMY | Q.SPRITE_DEFAULT,
-                health: 200,
-                damagePoints: 10
-            });
+Quintus.Player = function (Q) {
+  Q.Sprite.extend('Player', {
+    init: function (p) {
+      var playerConfig = Q.config.player;
 
-            this.add('2d, platformerControls, animation');
-            this.add('weapon');
+      this._super(p, {
+        sheet: playerConfig.sheet,
+        sprite: playerConfig.sprite,
+        speed: playerConfig.speed,
+        jumpSpeed: playerConfig.jumpSpeed,
+        type: Q.SPRITE_FRIENDLY,
+        collisionMask: Q.SPRITE_ENEMY | Q.SPRITE_DEFAULT | Q.SPRITE_PARTICLE,
+        standingPoints: playerConfig.standingPoints,
+        deadPoints: playerConfig.deadPoints
+      });
 
-            Q.HEALTH = this.p.health;
-            Q.input.on('fire', this, 'shoot');
-            this.on('fired', this, 'launchBullet');
-            this.on('hit.sprite', 'die');
-        },
+      this.add('platformerControls');
+      this.add('creature, weapon');
+      Q.input.on('fire', this, 'shoot');
+      this.on('fired', 'launchBullet');
+      this.on('hit');
+    },
+    step: function (dt) {
+      var direction = this.getDirection();
 
-        shoot: function() {
-            var that = this;
+      if (this.p.vx !== 0 && this.p.vy === 0) {
+        this.play(direction + 'Walk');
+      } else if (this.p.vy < 0) {
+        this.play(direction + 'Jump');
+      } else if (this.p.vy > 0) {
+        this.play(direction + 'Fall');
+      } else {
+        this.play(direction + 'Idle');
+      }
 
-            if (!that.p.canShoot) {
-                return;
-            }
+      if (Q.inputs['down']) {
+        this.play(direction + 'Duck');
+      }
+    },
+    getDirection: function () {
+      return this.p.direction;
+    },
+    shoot: function () {
+      var shootingAnimationPriority = 1,
+        direction = this.getDirection();
 
-            this.play(this.p.direction + 'Shoot', 1);
-        },
+      if (!this.p.canShoot) {
+        return;
+      }
 
-        step: function(dt) {
-            if (this.p.vx !== 0 && this.p.vy === 0) {
-                this.play(this.p.direction + 'Walk');
-            } else if (this.p.vy < 0) {
-                this.play(this.p.direction + 'Jump');
-            } else if (this.p.vy > 0) {
-                this.play(this.p.direction + 'Fall');
-            } else {
-                this.play(this.p.direction + 'Idle');
-            }
+      this.play(direction + 'Shoot', shootingAnimationPriority);
+    },
+    hit: function (collision) {
+      if (collision.obj.p.type === Q.SPRITE_PARTICLE) {
+        Q.stageScene('levelCompleteScene');
+      }
 
-            if (this.p.y > Q.height - 40) {
-                //    console.log(Q.SCORE);
-                Q.stageScene('endGame', 1, this.p);
-                this.destroy();
-            }
-
-            if (Q.inputs['down']) {
-                this.play(this.p.direction + 'Duck');
-            }
-        },
-
-        die: function(collision) {
-            if (collision.obj.p.type === Q.SPRITE_ENEMY) {
-                this.p.health -= collision.obj.p.damagePoints;
-                if (this.p.health < 0) {
-                    this.p.health = 0
-                }
-
-                Q.HEALTH = this.p.health;
-                Q.stageScene('currentScore', 3, Q('Player').first().p);
-
-                if (this.p.health <= 0) {
-                    Q.stageScene('endGame', 1, this.p);
-                    this.destroy();
-                }
-            }
-        }
-    });
+      if (collision.obj.p.type === Q.SPRITE_ENEMY) {
+        this.handleDyingAnimation();
+      }
+    },
+    die: function () {
+      this.destroy();
+      Q.stageScene('gameOverScene');
+    }
+  });
 };

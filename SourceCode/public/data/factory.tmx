@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="76" height="20" tilewidth="32" tileheight="32" nextobjectid="93">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="76" height="20" tilewidth="32" tileheight="32" nextobjectid="98">
  <tileset firstgid="1" name="level1-spritesheet" tilewidth="32" tileheight="32">
   <image source="../img/level1-spritesheet.png" width="1120" height="736"/>
   <tile id="559">
@@ -23,7 +23,7 @@
   <image source="../img/deadly-ground-spritesheet.png" width="160" height="32"/>
   <tile id="0">
    <properties>
-    <property name="Class" value="DeadlyGround"/>
+    <property name="Class" value="Grinder"/>
    </properties>
   </tile>
  </tileset>
@@ -40,6 +40,14 @@
   <tile id="0">
    <properties>
     <property name="Class" value="Marine"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="945" name="teleport-spritesheet" tilewidth="60" tileheight="60">
+  <image source="../img/teleport-spritesheet.png" width="240" height="240"/>
+  <tile id="0">
+   <properties>
+    <property name="Class" value="Teleport"/>
    </properties>
   </tile>
  </tileset>
@@ -4652,7 +4660,6 @@
   <object id="75" gid="838" x="2113.5" y="640.5" width="32" height="32"/>
   <object id="78" gid="838" x="2145.75" y="640.5" width="32" height="32"/>
   <object id="80" gid="838" x="2176.5" y="640.5" width="32" height="32"/>
-  <object id="82" gid="915" x="96" y="256" width="45" height="40"/>
   <object id="83" gid="915" x="352" y="192" width="45" height="40"/>
   <object id="84" gid="915" x="1376" y="256" width="45" height="40"/>
   <object id="85" gid="915" x="1728" y="448" width="45" height="40"/>
@@ -4661,5 +4668,7 @@
   <object id="90" gid="843" x="1888" y="192" width="40" height="50"/>
   <object id="91" gid="843" x="1280" y="512" width="40" height="50"/>
   <object id="92" gid="915" x="512" y="544" width="45" height="40"/>
+  <object id="95" gid="945" x="32" y="256" width="60" height="60"/>
+  <object id="96" gid="945" x="32" y="256" width="60" height="60"/>
  </objectgroup>
 </map>
